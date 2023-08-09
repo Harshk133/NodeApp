@@ -25,19 +25,19 @@ app.get("/certificate", (req, res)=>{
 app.post("/certificate", (req, res) => {
     console.log(req.body);
     try {
-        const templateFile = fs.readFileSync(path.resolve(__dirname, './public/templateDocx/Sample_template_certificate.docx'), 'binary');
+        const templateFile = fs.readFileSync(path.resolve(__dirname, './public/templateDocx/JPR.docx'), 'binary');
         const zip = new PizZip(templateFile);
         let outputDocument = new Docxtemplater(zip);
 
-        const dataToAdd = {
+        const dataToAdd_ceritficate = {
             STUDENT_NAME: req.body.name,
             STUDENT_ENR: req.body.enrollmentno,
+            MICROPROJECT_SUBJECT: req.body.micro,
             COI: req.body.coi,
-            MICROPROJECT_TITLE: req.body.micorprojecttitle,
-            COSUBJECT: req.body.cosubject,
+            SUBJECT: req.body.sub,
             TEACHER_NAME: req.body.teachername
         };
-        outputDocument.setData(dataToAdd);
+        outputDocument.setData(dataToAdd_ceritficate);
 
         try {
             outputDocument.render()
@@ -91,30 +91,29 @@ app.post("/microproject", (req, res) => {
     res.download(`./public/files/computer/microproject/${req.body.Mname}-computer-microproject.docx`);
 });
 
-app.get("/mcss", (req, res) => {
+app.get("/another", (req, res) => {
     res.render("page");
 });
 
-app.post("/mcss", (req, res) => {
+app.post("/another", (req, res) => {
     console.log(req.body);
-    if (req.body.mcssname && req.body.mcssenrollment && req.body.mcssenrollno && req.body.mcssteacher) {
         try {
-            const templateFile = fs.readFileSync(path.resolve(__dirname, './public/templateDocx/CSS MICROPROJECT.docx'), 'binary');
+            const templateFile = fs.readFileSync(path.resolve(__dirname, './public/templateDocx/DTE.docx'), 'binary');
             const zip = new PizZip(templateFile);
             let outputDocument = new Docxtemplater(zip);
     
             const dataToAdd = {
-                STUDENT_NAME_CSS: req.body.mcssname,
-                STUDENT_ENR_CSS: req.body.mcssenrollment,
-                ROLLNO_CSS: req.body.mcssenrollno,
-                TEACHER_NAME_CSS: req.body.mcssteacher
+                STUDENT_NAME: req.body.Mnameo,
+                STUDENT_ENR: req.body.Mrollnoo,
+                ROLLNO: req.body.Mteachero,
+                TEACHER_NAME: req.body.Mteachero
             };
             outputDocument.setData(dataToAdd);
     
             try {
                 outputDocument.render()
                 let outputDocumentBuffer = outputDocument.getZip().generate({ type: 'nodebuffer' });
-                fs.writeFileSync(path.resolve(__dirname, `./public/files/computer/microproject/${req.body.mcssname}-computer-microproject.docx`), outputDocumentBuffer);
+                fs.writeFileSync(path.resolve(__dirname, `./public/files/computer/microproject/${req.body.Mnameo}-computer-microproject.docx`), outputDocumentBuffer);
             }
             catch (error) {
                 console.error(`ERROR Filling out Template:`);
@@ -124,9 +123,9 @@ app.post("/mcss", (req, res) => {
             console.error(`ERROR Loading Template:`);
             console.error(error);
         }
-        res.download(`./public/files/computer/microproject/${req.body.mcssname}-computer-microproject.docx`);
+        res.download(`./public/files/computer/microproject/${req.body.Mnameo}-computer-microproject.docx`);
     }    
-});
+);
 
 // app.post("/mcss", (req, res) => {
 //     console.log(req.body);

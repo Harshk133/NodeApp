@@ -38,7 +38,7 @@
     <main id="main">
         <center>
             <h3>
-                Welcome <%= locals.username || "Hello User" %>, to MugBit!
+                Welcome, to MugBit!
             </h3>
         </center>
 
@@ -53,7 +53,7 @@
             </div>
 
             <div class="card" style="width: 18rem;">
-                <img src="msdocument.jfif" class="card-img-top" alt="Image">
+                <img src="MugBit.PNG" class="card-img-top" alt="Image">
                 <div class="card-body">
                     <h5 class="card-title">Certificate</h5>
                     <p class="card-text">Computer Branch Certificate For You!</p>
@@ -67,7 +67,7 @@
 
         <div class="card-container">
             <div class="card" style="width: 18rem;">
-                <img src="msdocument.jfif" class="card-img-top" alt="Image">
+                <img src="MugBit.PNG" class="card-img-top" alt="Image">
                 <div class="card-body">
                     <h5 class="card-title">EST Microproject</h5>
                     <p class="card-text">Microproject For You!</p>
@@ -80,12 +80,12 @@
             </div>
 
             <div class="card" style="width: 18rem;">
-                <img src="msdocument.jfif" class="card-img-top" alt="Image">
+                <img src="MugBit.PNG" class="card-img-top" alt="Image">
                 <div class="card-body">
                     <h5 class="card-title">CSS Microproject</h5>
                     <p class="card-text">Microproject For You!</p>
 
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#css">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdropForAnother">
                         Use This!
                     </button>
                 </div>
@@ -121,19 +121,19 @@
                                 aria-describedby="enrollmentnoHelp">
                         </div>
                         <div class="mb-3">
-                            <label for="coi" class="form-label">Enter Your COI</label>
-                            <input type="text" class="form-control" id="coi" name="coi" aria-describedby="coiHelp"
-                                placeholder="For example, CO5I">
+                            <label for="micro" class="form-label">Enter Your Mp Sub</label>
+                            <input type="text" class="form-control" id="micro" name="micro"
+                                aria-describedby="micro">
                         </div>
                         <div class="mb-3">
-                            <label for="micorprojecttitle" class="form-label">Enter Your Microproject Title</label>
-                            <input type="text" class="form-control" id="micorprojecttitle" name="micorprojecttitle"
-                                aria-describedby="micorprojecttitleHelp">
+                            <label for="coi" class="form-label">Enter Your coi no</label>
+                            <input type="text" class="form-control" id="coi" name="coi"
+                                aria-describedby="coiHelp">
                         </div>
                         <div class="mb-3">
-                            <label for="cosubject" class="form-label">Enter Your Subject</label>
-                            <input type="text" class="form-control" id="cosubject" name="cosubject"
-                                aria-describedby="cosubjectHelp">
+                            <label for="sub" class="form-label">Enter Your sub no</label>
+                            <input type="text" class="form-control" id="sub" name="sub"
+                                aria-describedby="subHelp">
                         </div>
                         <div class="mb-3">
                             <label for="teachername" class="form-label">Enter Your Teacher Name</label>
@@ -185,6 +185,44 @@
             </div>
         </div>
     </div>
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdropForAnother" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Form</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="/another" method="post">
+                        <div class="mb-3">
+                            <label for="Mnameo" class="form-label">Enter Your Name</label>
+                            <input type="text" class="form-control" id="Mnameo" name="Mnameo"
+                                aria-describedby="MnameoHelp">
+
+                            <label for="Menrollmentnoo" class="form-label">Enter Your Enrollment Number</label>
+                            <input type="text" class="form-control" id="Menrollmentnoo" name="Menrollmentnoo"
+                                aria-describedby="MenrollmentnooHelp">
+
+                            <label for="Mrollnoo" class="form-label">Enter Your Roll Number</label>
+                            <input type="text" class="form-control" id="Mrollnoo" name="Mrollnoo"
+                                aria-describedby="MrollnooHelp">
+
+                            <label for="Mteachero" class="form-label">Enter Your Teacher Name</label>
+                            <input type="text" class="form-control" id="Mteachero" name="Mteachero"
+                                aria-describedby="MteacheroHelp">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Done</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Understood</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Modal -->
     <div class="modal fade" id="css" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
@@ -196,7 +234,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="/mcss" method="post">
+                    <!-- <form action="/mcss" method="post">
                         <label for="mcssname" class="form-label">Enter Your Name</label>
                         <input type="text" class="form-control" id="mcssname" name="mcssname" aria-describedby="mcssnameHelp">
 
@@ -209,7 +247,7 @@
                         <label for="mcssteacher" class="form-label">Enter Your Teacher Name</label>
                         <input type="text" class="form-control" id="mcssteacher" name="mcssteacher" aria-describedby="mcssteacherHelp">
                         <button type="submit" class="btn btn-primary">Done</button>
-                    </form>
+                    </form> -->
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
